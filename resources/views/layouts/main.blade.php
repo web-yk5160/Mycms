@@ -27,7 +27,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="the-navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Blog</a></li>
+                <li class="active"><a href="{{route('blog')}}">Blog</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class="copyright">&copy; 2016 Edo Masaru</p>
+                    <p class="copyright">&copy;</p>
                 </div>
                 <div class="col-md-4">
                     <nav>

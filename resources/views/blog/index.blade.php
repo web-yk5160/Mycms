@@ -39,7 +39,7 @@
 
                 @endforeach
                 <nav>
-                  {{ $posts->links() }}
+                {{ $posts->links() }}
                 </nav>
             </div>
 
