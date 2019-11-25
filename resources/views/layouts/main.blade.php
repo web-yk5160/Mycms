@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class="copyright">&copy;</p>
+                    <p class="copyright"></p>
                 </div>
                 <div class="col-md-4">
                     <nav>
