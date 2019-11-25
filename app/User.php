@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,20 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class, 'author_id');
+    }
+
+    public function gravatar()
+    {
+        $email = $this->email;
+        $default = "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png";
+        $size = 40;
+
+        return $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+    }
+
+    public function getBioHtmlAttribute($value)
+    {
+        return $this->bio ? Markdown::convertToHtml(e($this->bio)) : NULL;
     }
 
     public function getRouteKeyName()

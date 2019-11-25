@@ -22,7 +22,7 @@
                                 <ul class="post-meta-group">
                                     <li><i class="fa fa-user"></i><a href="{{ route('author', $post->author->slug) }}">{{ $post->author->name  }}</a></li>
                                     <li><i class="fa fa-clock-o"></i><time>{{ $post->date }}</time></li>
-                                    <li><i class="fa fa-tags"></i><a href="#"> Blog</a></li>
+                                    <li><i class="fa fa-folder"></i><a href="{{ route('category', $post->category->slug) }}">{{ $post->category->title }}</a></li>
                                     <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
                                 </ul>
                             </div>
@@ -37,29 +37,23 @@
                       <div class="media-left">
                         <?php $author = $post->author; ?>
                         <a href="">
-                          <img alt="Author 1" width="100" height="100" src="/img/author.jpg" class="media-object">
+                          <img alt="{{ $author->name }}" width="100" height="100" src="{{ $author->gravatar() }}" class="media-object">
                         </a>
                       </div>
                       <div class="media-body">
-                        <h4 class="media-heading"><a href="{{ route('author', $post->author->slug) }}">{{ $author->name }}</a></h4>
+                        <h4 class="media-heading"><a href="{{ route('author', $author->slug) }}">{{ $author->name }}</a></h4>
                         <div class="post-author-count">
-                          <a href="{{ route('author', $post->author->slug) }}">
+                          <a href="{{ route('author', $author->slug) }}">
                               <i class="fa fa-clone"></i>
-                              <?php $postCount = $post->author->posts->count() ?>
+                              <?php $postCount = $author->posts()->published()->count() ?>
                               {{ $postCount }} {{ str_plural('post', $postCount) }}
                           </a>
                         </div>
-
+                        {!! $author->bio_html !!}
                       </div>
                     </div>
                 </article>
 
-                <nav>
-                    <ul class="pager">
-                        <li class="previous disabled"><a href="#"><span aria-hidden="true">←</span> Newer</a></li>
-                        <li class="next"><a href="#">Older <span aria-hidden="true">→</span></a></li>
-                    </ul>
-                </nav>
             </div>
 
             @include('layouts.sidebar')
