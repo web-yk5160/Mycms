@@ -8,10 +8,12 @@
     <section class="content-header">
       <h1>
         ブログ
-        <small>ブログ投稿を表示</small>
+        <small>すべてのブログ投稿を表示</small>
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</li></a>
+        <li class="active"><a href="{{ route('backend.blog.index') }}">ブログ</a></li>
+        <li class="active">すべての投稿</li>
       </ol>
     </section>
 
@@ -20,8 +22,18 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
+              <div class="box-header">
+                <div class="pull-left">
+                  <a href="{{ route('backend.blog.create') }}" class="btn btn-success">新規追加</a>
+                </div>
+              </div>
               <!-- /.box-header -->
-              <div class="box-body ">
+              <div class="box-body">
+                @if(! $posts->count())
+                <div class="alert alert-danger">
+                  <strong>投稿が見つかりません</strong>
+                </div>
+                @else
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -55,13 +67,13 @@
                   @endforeach
                 </tbody>
               </table>
+              @endif
               </div>
               <!-- /.box-body -->
               <div class="box-footer clearfix ">
                 {{ $posts->render() }}
 
               <div class="pull-right">
-                <?php $postCount = $post->count() ?>
                 <small>{{ $postCount }}個の項目</small>
               </div>
             </div>
@@ -74,4 +86,10 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+    $('ul.pagination').addClass('no-margin pagination-sm');s
+  </script>
 @endsection
