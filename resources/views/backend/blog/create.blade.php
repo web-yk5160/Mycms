@@ -26,7 +26,8 @@
               <div class="box-body">
                 {!! Form::model($post, [
                     'method' => 'POST',
-                    'route' => 'backend.blog.store'
+                    'route' => 'backend.blog.store',
+                    'files' => TRUE
                   ]) !!}
 
                 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
@@ -48,10 +49,6 @@
                 <div class="form-group">
                   {!! Form::label('excerpt', '抜粋') !!}
                   {!! Form::textarea('excerpt', null, ['class' => 'form-control']) !!}
-
-                  @if($errors->has('excerpt'))
-                    <span class="help-block">{{ $errors->first('excerpt')}}</span>
-                  @endif
                 </div>
                 <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
                   {!! Form::label('body', '内容') !!}
@@ -75,6 +72,15 @@
 
                   @if($errors->has('category_id'))
                     <span class="help-block">{{ $errors->first('category_id')}}</span>
+                  @endif
+                </div>
+
+                <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
+                  {!! Form::label('image', '画像') !!}
+                  {!! Form::file('image') !!}
+
+                  @if($errors->has('image'))
+                    <span class="help-block">{{ $errors->first('image')}}</span>
                   @endif
                 </div>
 
