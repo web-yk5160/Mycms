@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'MyBlog | 新規投稿')
+@section('title', 'MyBlog | 投稿を編集')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -8,12 +8,12 @@
     <section class="content-header">
       <h1>
         ブログ
-        <small>新規投稿</small>
+        <small>投稿を編集</small>
       </h1>
       <ol class="breadcrumb">
         <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</li></a>
         <li class="active"><a href="{{ route('backend.blog.index') }}">ブログ</a></li>
-        <li class="active">追加</li>
+        <li class="active">編集</li>
       </ol>
     </section>
 
@@ -21,8 +21,8 @@
     <section class="content">
         <div class="row">
         {!! Form::model($post, [
-          'method' => 'POST',
-          'route' => 'backend.blog.store',
+          'method' => 'PUT',
+          'route' => ['backend.blog.update', $post->id],
           'files' => TRUE,
           'id' => 'post-form'
         ]) !!}
