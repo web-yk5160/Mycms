@@ -29,11 +29,8 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                @if(session('message'))
-                  <div class="alert alert-info">
-                    {{ session('message') }}
-                  </div>
-                @endif
+                @include('backend.blog.message')
+
                 @if(! $posts->count())
                 <div class="alert alert-danger">
                   <strong>投稿が見つかりません</strong>
@@ -54,12 +51,14 @@
                   @foreach($posts as $post)
                     <tr>
                       <td>
-                        <a href="{{ route('backend.blog.edit', $post->id) }}" class="btn btn-xs btn-default">
-                          <i class="fa fa-edit"></i>
-                        </a>
-                        <a href="{{ route('backend.blog.destroy', $post->id) }}" class="btn btn-xs btn-danger">
-                          <i class="fa fa-times"></i>
-                        </a>
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['backend.blog.destroy', $post->id]]) !!}
+                          <a href="{{ route('backend.blog.edit', $post->id) }}" class="btn btn-xs btn-default">
+                            <i class="fa fa-edit"></i>
+                          </a>
+                          <button class="btn btn-xs btn-danger">
+                            <i class="fa fa-times"></i>
+                          </button>
+                          {!! Form::close() !!}
                       </td>
                       <td>{{ $post->title }}</td>
                       <td>{{ $post->author->name }}</td>
