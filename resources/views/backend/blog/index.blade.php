@@ -27,8 +27,15 @@
                   <a href="{{ route('backend.blog.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> 新規追加</a>
                 </div>
                 <div class="pull-right" style="padding:7px 0">
-                  <a href="?status=all">すべて</a> |
-                  <a href="?status=trash">ゴミ箱</a>
+                  @foreach($jkey as $j => $v)
+                    @foreach($statusList as $key => $value)
+                      @if($value && $j == $key)
+                      <?php $selected = Request::get('status') == $key ? 'selected-status' : '' ?>
+                      <?php $links[] = "<a class=\"{$selected}\" href=\"?status={$key}\">" . $v . "({$value})</a>" ?>
+                      @endif
+                    @endforeach
+                  @endforeach
+                  {!! implode(' | ', $links) !!}
                 </div>
               </div>
               <!-- /.box-header -->
@@ -49,8 +56,9 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer clearfix ">
-                {{ $posts->render() }}
-
+                <div class="pull-left">
+                  {{ $posts->appends( Request::query() )->render() }}
+                </div>
               <div class="pull-right">
                 <small>{{ $postCount }}個の項目</small>
               </div>
