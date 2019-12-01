@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
+use App\Category;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -11,38 +13,54 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->truncate();
-
-        DB::table('categories')->insert([
-            [
-                'title' => 'Web Programming',
-                'slug' => 'web-programming'
-            ],
-            [
-                'title' => 'Web Design',
-                'slug' => 'web-design'
-            ],
-            [
-                'title' => 'Internet',
-                'slug' => 'internet'
-            ],
-            [
-                'title' => 'Social Marketing',
-                'slug' => 'social-marketing'
-            ],
-            [
-                'title' => 'Photography',
-                'slug' => 'photography'
-            ],
-        ]);
-
-        for($post_id = 1; $post_id <= 10; $post_id++)
+        // DB::table('categories')->truncate();
+        if (env('APP_ENV') == 'local')
         {
-            $category_id = rand(1, 5);
+            $categories = [
+                [
+                    'title' => 'Uncategorized',
+                    'slug' => 'uncategorized'
+                ],
+                [
+                    'title' => 'Tips and Tricks',
+                    'slug' => 'tips-and-tricks'
+                ],
+                [
+                    'title' => 'Build Apps',
+                    'slug' => 'build-apps'
+                ],
+                [
+                    'title' => 'News',
+                    'slug' => 'news'
+                ],
+                [
+                    'title' => 'Freebies',
+                    'slug' => 'freebies'
+                ],
+            ];
+        }
+        else
+        {
+            $categories = [
+                'title' => 'Uncategorized',
+                'slug' => 'uncategorized'
+            ];
+        }
 
-            DB::table('posts')
-                ->where('id', $post_id)
-                ->update(['category_id' => $category_id]);
+        DB::table('categories')->insert($categories);
+
+        if (env('APP_ENV') == 'local')
+        {
+            // update the posts data
+            foreach (Post::pluck('id') as $postId)
+            {
+                $categories = Category::pluck('id');
+                $categoryId = $categories[rand(0, $categories->count()-1)];
+
+                DB::table('posts')
+                ->where('id', $postId)
+                ->update(['category_id' => $categoryId]);
+            }
         }
     }
 }

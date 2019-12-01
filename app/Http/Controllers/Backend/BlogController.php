@@ -10,7 +10,6 @@ use Intervention\Image\Facades\Image;
 
 class BlogController extends BackendController
 {
-    protected $limit = 5;
     protected $uploadPath;
 
     public function __construct()

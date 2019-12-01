@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 class BackendController extends Controller
 {
+    protected $limit = 5;
     /**
      * Create a new controller instance.
      *

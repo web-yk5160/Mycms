@@ -17,23 +17,23 @@
       <ul class="sidebar-menu">
         <li>
           <a href="{{ url('/home')}}">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>ダッシュボード</span>
           </a>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pencil"></i>
-            <span>Blog</span>
+            <span>ブログ</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('backend.blog.index') }}"><i class="fa fa-circle-o"></i> All Posts</a></li>
-            <li><a href="{{ route('backend.blog.create') }}"><i class="fa fa-circle-o"></i> Add New</a></li>
+            <li><a href="{{ route('backend.blog.index') }}"><i class="fa fa-circle-o"></i>全ての投稿</a></li>
+            <li><a href="{{ route('backend.blog.create') }}"><i class="fa fa-circle-o"></i>新規追加</a></li>
           </ul>
         </li>
-        <li><a href="#"><i class="fa fa-folder"></i> <span>Categories</span></a></li>
+        <li><a href="{{ route('backend.categories.index') }}"><i class="fa fa-folder"></i> <span>カテゴリー</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
