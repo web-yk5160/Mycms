@@ -16,11 +16,6 @@ class CategoryDestroyRequest extends FormRequest
         return !($this->route('category') == config('cms.default_category_id'));
     }
 
-    public function forbiddenRequest()
-    {
-        return redirect()->back()->with('error-message', 'デフォルトカテゴリーは削除できません');
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
