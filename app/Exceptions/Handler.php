@@ -45,10 +45,10 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-{
-    if ($exception instanceof \Illuminate\Auth\Access\AuthorizationException) {
-        return response()->view('errors.authorization-error', [], 500);
+    {
+        if ($exception instanceof \Illuminate\Auth\Access\AuthorizationException) {
+            return response()->view('errors.authorization-error', [], 500);
+        }
+        return parent::render($request, $exception);
     }
-    return parent::render($request, $exception);
-}
 }

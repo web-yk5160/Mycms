@@ -34,6 +34,7 @@
           </ul>
         </li>
         <li><a href="{{ route('backend.categories.index') }}"><i class="fa fa-folder"></i> <span>カテゴリー</span></a></li>
+        <li><a href="{{ route('backend.users.index') }}"><i class="fa fa-users"></i> <span>ユーザー</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
