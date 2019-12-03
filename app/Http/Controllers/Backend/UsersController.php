@@ -41,11 +41,12 @@ class UsersController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserStoreRequest $request)
+    public function store(Requests\UserStoreRequest $request)
     {
-        User::create($request->all());
-
-        return redirect("/backend/users")->with('message', 'ユーザーが作成されました');
+        $data = $request->all();
+        $data['password'] = bcrypt($data['password']);
+        User::create($data);
+        return redirect("/backend/users")->with("message", "新規ユーザーが作成されました");
     }
 
     /**
