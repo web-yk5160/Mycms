@@ -11,7 +11,7 @@
         <small>カテゴリーを編集</small>
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</li></a>
+        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> ダッシュボード</li></a>
         <li class="active"><a href="{{ route('backend.categories.index') }}">カテゴリー</a></li>
         <li class="active">カテゴリーを編集</li>
       </ol>

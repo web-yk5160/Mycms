@@ -36,14 +36,14 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{ url('/edit-account') }}" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{ url('/edit-account') }}" class="btn btn-default btn-flat">プロフィール</a>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat"
                   href="{{ url('/logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();"
-                  >Log out</a>
+                  >ログアウト</a>
 
                   <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display:none;">
                     {{ csrf_field() }}

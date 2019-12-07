@@ -11,7 +11,7 @@
         <small>新規投稿</small>
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</li></a>
+        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> ダッシュボード</li></a>
         <li class="active"><a href="{{ route('backend.blog.index') }}">ブログ</a></li>
         <li class="active">追加</li>
       </ol>

@@ -1,16 +1,16 @@
 @extends('layouts.backend.main')
 
-@section('title', 'MyBlog | Dashboard')
+@section('title', 'MyBlog | ダッシュボード')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dasbhboard
+        ダッシュボード
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+        <li class="active"><i class="fa fa-dashboard"></i> ダッシュボード</li>
       </ol>
     </section>
 

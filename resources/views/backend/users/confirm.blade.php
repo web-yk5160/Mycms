@@ -11,7 +11,7 @@
         <small>削除の確認</small>
       </h1>
       <ol class="breadcrumb">
-        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</li></a>
+        <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> ダッシュボード</li></a>
         <li class="active"><a href="{{ route('backend.users.index') }}">ユーザー</a></li>
         <li class="active">削除の確認</li>
       </ol>
