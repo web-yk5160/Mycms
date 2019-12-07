@@ -41,11 +41,14 @@ class UsersController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\UserStoreRequest $request)
+    public function store(UserStoreRequest $request)
     {
         $data = $request->all();
         $data['password'] = bcrypt($data['password']);
-        User::create($data);
+        $user = User::create($data);
+
+        $user->attachRole($request->role);
+
         return redirect("/backend/users")->with("message", "新規ユーザーが作成されました");
     }
 
@@ -80,9 +83,15 @@ class UsersController extends BackendController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Requests\UserUpdateRequest $request, $id)
     {
-        User::findOrFail($id)->update($request->all());
+        $user = User::findOrFail($id);
+        $data = $request->all();
+        $data['password'] = bcrypt($data['password']);
+        $user->update($data);
+
+        $user->detachRoles($user->role);
+        $user->attachRole($request->role);
 
         return redirect("/backend/users")->with('message', 'ユーザーが編集されました');
 
