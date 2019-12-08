@@ -10,14 +10,14 @@ use App\User;
 
 class BlogController extends Controller
 {
-    protected $limit = 3;
+    protected $limit = 2;
 
     public function index()
     {
         $posts = Post::with('author', 'tags', 'category')
                     ->latestFirst()
                     ->published()
-                    ->filter(request('term'))
+                    ->filter(request()->only(['term', 'year', 'month']))
                     ->simplePaginate($this->limit);
 
         return view("blog.index", compact('posts'));

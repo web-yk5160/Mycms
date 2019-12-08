@@ -102,5 +102,6 @@ return [
         'body' => '内容',
         'category_id' => 'カテゴリー',
         'all' => 'すべて',
+        'November' => '11月'
     ],
 ];
