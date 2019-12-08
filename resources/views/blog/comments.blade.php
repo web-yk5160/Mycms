@@ -1,9 +1,9 @@
 <article class="post-comments" id="post-comments">
-    <h3><i class="fa fa-comments"></i> {{ $post->commentsNumber('Comment') }}</h3>
+    <h3><i class="fa fa-comments"></i> {{ $post->commentsNumber('Comments') }}</h3>
 
     <div class="comment-body padding-10">
         <ul class="comments-list">
-            @foreach($postComments as $comment)
+            @foreach($post->comments as $comment)
                 <li class="comment-item">
                     <div class="comment-heading clearfix">
                         <div class="comment-author-meta">
@@ -19,7 +19,7 @@
         </ul>
 
         <nav>
-            {!! $postComments->links() !!}
+
         </nav>
     </div>
 
