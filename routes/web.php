@@ -66,3 +66,5 @@ Route::get('/backend/users/confirm/{user}',[
     'as' => 'backend.users.confirm'
 ]);
 Route::resource('/backend/users', 'Backend\UsersController', ['as' => 'backend']);
+
+Route::resource('/backend/tags', 'Backend\TagsController', ['as' => 'backend']);

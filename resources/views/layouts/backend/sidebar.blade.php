@@ -36,6 +36,9 @@
         @if (check_user_permissions(request(), "Categories@index"))
           <li><a href="{{ route('backend.categories.index') }}"><i class="fa fa-folder"></i> <span>カテゴリー</span></a></li>
         @endif
+        @if (check_user_permissions(request(), "Tags@index"))
+          <li><a href="{{ route('backend.tags.index') }}"><i class="fa fa-tags"></i> <span>タグ</span></a></li>
+        @endif
         @if (check_user_permissions(request(), "Users@index"))
           <li><a href="{{ route('backend.users.index') }}"><i class="fa fa-users"></i> <span>ユーザー</span></a></li>
         @endif
