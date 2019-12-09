@@ -34,11 +34,11 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function commentsNumber($label = 'Comment')
+    public function commentsNumber($label = 'コメント')
     {
         $commentsNumber = $this->comments->count();
 
-        return $commentsNumber . " " . str_plural($label, $commentsNumber);
+        return $commentsNumber . " " . $label;
     }
 
     public function createComment(array $data)
@@ -83,6 +83,7 @@ class Post extends Model
 
     public function getDateAttribute($value)
     {
+        Carbon::setLocale('ja');
         return is_null($this->published_at) ? '' : $this->published_at->diffForHumans();
     }
 

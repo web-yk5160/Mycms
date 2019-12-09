@@ -1,5 +1,5 @@
 <article class="post-comments" id="post-comments">
-    <h3><i class="fa fa-comments"></i> {{ $post->commentsNumber('Comments') }}</h3>
+    <h3><i class="fa fa-comments"></i> {{ $post->commentsNumber() }}</h3>
 
     <div class="comment-body padding-10">
         <ul class="comments-list">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="comment-footer padding-10">
-        <h3>Leave a comment</h3>
+        <h3>コメントを書き込む</h3>
 
         @if(session('message'))
             <div class="alert alert-info">
@@ -34,7 +34,7 @@
 
         {!! Form::open(['route' => ['blog.comments', $post->slug]]) !!}
             <div class="form-group required {{ $errors->has('author_name') ? 'has-error' : '' }}">
-                <label for="name">Name</label>
+                <label for="name">名前</label>
                 {!! Form::text('author_name', null, ['class' => 'form-control']) !!}
                 @if($errors->has('author_name'))
                     <span class="help-block">
@@ -43,7 +43,7 @@
                 @endif
             </div>
             <div class="form-group required {{ $errors->has('author_email') ? 'has-error' : '' }}">
-                <label for="email">Email</label>
+                <label for="email">メールアドレス</label>
                 {!! Form::text('author_email', null, ['class' => 'form-control']) !!}
                 @if($errors->has('author_email'))
                     <span class="help-block">
@@ -52,11 +52,11 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="website">Website</label>
+                <label for="website">ウェブサイト</label>
                 {!! Form::text('author_url', null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group required {{ $errors->has('body') ? 'has-error' : '' }}">
-                <label for="comment">Comment</label>
+                <label for="comment">コメント</label>
                 {!! Form::textarea('body', null, ['row' => 6, 'class' => 'form-control']) !!}
                 @if($errors->has('body'))
                     <span class="help-block">
@@ -66,12 +66,12 @@
             </div>
             <div class="clearfix">
                 <div class="pull-left">
-                    <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                    <button type="submit" class="btn btn-lg btn-success">コメントを送信</button>
                 </div>
                 <div class="pull-right">
                     <p class="text-muted">
                         <span class="required">*</span>
-                        <em>Indicates required fields</em>
+                        <em>必須項目</em>
                     </p>
                 </div>
             </div>

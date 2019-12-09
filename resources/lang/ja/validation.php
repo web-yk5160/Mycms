@@ -102,6 +102,7 @@ return [
         'body' => '内容',
         'category_id' => 'カテゴリー',
         'all' => 'すべて',
-        'November' => '11月'
+        'author_name' => '名前',
+        'author_email' => 'メールアドレス'
     ],
 ];
