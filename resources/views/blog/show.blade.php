@@ -47,7 +47,7 @@
                           <a href="{{ route('author', $author->slug) }}">
                               <i class="fa fa-clone"></i>
                               <?php $postCount = $author->posts()->published()->count() ?>
-                              {{ $postCount }} {{ str_plural('post', $postCount) }}
+                              {{ $postCount }}投稿
                           </a>
                         </div>
                         {!! $author->bio_html !!}
