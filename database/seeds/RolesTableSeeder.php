@@ -35,16 +35,21 @@ class RolesTableSeeder extends Seeder
 
         //roleの割り当て
         //最初のuserがadmin
-        $user1 = User::find(1);
+        $user1 = User::first();
         $user1->detachRole($admin);
         $user1->attachRole($admin);
-        // 2番目がeditor
-        $user2 = User::find(2);
-        $user2->detachRole($editor);
-        $user2->attachRole($editor);
-        // 3番目がauthor
-        $user3 = User::find(3);
-        $user3->detachRole($author);
-        $user3->attachRole($author);
+
+        if(env('APP_ENV') === 'local')
+        {
+            // 2番目がeditor
+            $user2 = User::find(2);
+            $user2->detachRole($editor);
+            $user2->attachRole($editor);
+            // 3番目がauthor
+            $user3 = User::find(3);
+            $user3->detachRole($author);
+            $user3->attachRole($author);
+        }
+
     }
 }

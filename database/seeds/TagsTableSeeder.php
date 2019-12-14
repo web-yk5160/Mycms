@@ -40,7 +40,7 @@ class TagsTableSeeder extends Seeder
             $php->id,
             $laravel->id,
             $symphony->id,
-            $vue
+            $vue->id
         ];
         foreach (Post::all() as $post)
         {
