@@ -125,7 +125,6 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
