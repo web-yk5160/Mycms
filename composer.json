@@ -11,6 +11,7 @@
         "graham-campbell/markdown": "^11.1",
         "intervention/image": "^2.5",
         "laravel/framework": "5.6.*",
+        "laravel/socialite": "^3.2.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "santigarcor/laratrust": "5.1.*"
