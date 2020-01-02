@@ -30,6 +30,7 @@ class PostRequest extends FormRequest
             'published_at' => 'nullable|date_format:Y-m-d H:i:s',
             'category_id' => 'required',
             'image' => 'mimes:jpg,jpeg,bmp,png',
+            'post_tags' => 'regex:/^[a-zA-Z0-9]+$/|required'
         ];
 
         switch($this->method()) {

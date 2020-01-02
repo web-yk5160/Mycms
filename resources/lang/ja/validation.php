@@ -103,6 +103,9 @@ return [
         'category_id' => 'カテゴリー',
         'all' => 'すべて',
         'author_name' => '名前',
-        'author_email' => 'メールアドレス'
+        'author_email' => 'メールアドレス',
+        'post_tags' => '言語・フレームワーク',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード'
     ],
 ];

@@ -3,7 +3,7 @@
         <div class="search-widget">
             <form action="{{ route('blog')}}">
                 <div class="input-group">
-                    <input type="text" class="form-control input-lg" name="term" value="{{ request('term') }}" placeholder="Search for...">
+                    <input type="text" class="form-control input-lg" name="term" value="{{ request('term') }}" placeholder="サイト内を検索">
                     <span class="input-group-btn">
                     <button class="btn btn-lg btn-default" type="submit">
                         <i class="fa fa-search"></i>
@@ -15,7 +15,7 @@
 
         <div class="widget">
             <div class="widget-heading">
-                <h4>Categories</h4>
+                <h4>カテゴリー</h4>
             </div>
             <div class="widget-body">
                 <ul class="categories">
@@ -31,7 +31,7 @@
 
         <div class="widget">
             <div class="widget-heading">
-                <h4>Archives</h4>
+                <h4>アーカイブ</h4>
             </div>
             <div class="widget-body">
                 <ul class="categories">
@@ -47,7 +47,7 @@
 
         <div class="widget">
             <div class="widget-heading">
-                <h4>Popular Posts</h4>
+                <h4>人気の投稿</h4>
             </div>
             <div class="widget-body">
                 <ul class="popular-posts">
@@ -74,7 +74,7 @@
 
         <div class="widget">
             <div class="widget-heading">
-                <h4>Tags</h4>
+                <h4>タグ</h4>
             </div>
             <div class="widget-body">
                 <ul class="tags">

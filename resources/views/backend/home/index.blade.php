@@ -21,11 +21,11 @@
             <div class="box">
               <!-- /.box-header -->
               <div class="box-body ">
-                    <h3>Welcome to MyBlog!</h3>
-                    <p class="lead text-muted">Hallo {{ Auth::user()->name }}, Welcome to MyBlog</p>
+                    <h3>ようこそMyBlogへ!</h3>
+                    <p class="lead text-muted">こんにちは {{ Auth::user()->name }}さん, MyBlogにようこそ!</p>
 
-                    <h4>Get started</h4>
-                    <p><a href="{{ route('backend.blog.create') }}" class="btn btn-primary">Write your first blog post</a> </p>
+                    <h4>始めましょう</h4>
+                    <p><a href="{{ route('backend.blog.create') }}" class="btn btn-primary">ブログを投稿する</a> </p>
               </div>
               <!-- /.box-body -->
             </div>

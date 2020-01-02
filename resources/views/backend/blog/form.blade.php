@@ -83,11 +83,15 @@
 
   <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Tags</h3>
+        <h3 class="box-title">タグ</h3>
     </div>
     <div class="box-body">
-        <div class="form-group">
+        <div class="form-group {{ $errors->has('post_tags') ? 'has-error' : '' }}">
             {!! Form::text('post_tags', null, ['class' => 'form-control']) !!}
+
+            @if($errors->has('post_tags'))
+              <span class="help-block">{{ $errors->first('post_tags')}}</span>
+            @endif
         </div>
     </div>
   </div>

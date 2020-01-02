@@ -106,7 +106,7 @@ class BlogController extends BackendController
 
         $newPost = $request->user()->posts()->create($data);
 
-        $newPost->createTags($data["post_tags"]);
+        $newPost->createTags(utf8_encode($data["post_tags"]));
 
         return redirect('/backend/blog')->with('message', '記事が投稿されました');
     }
