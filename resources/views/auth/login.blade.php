@@ -50,7 +50,7 @@
 
         <br>
         <a href="{{ route('password.request') }}">パスワードをお忘れですか?</a><br>
-        <a href="{{ url('login/facebook')}}">Facebookでログイン</a>
+        <a href="{{ url('auth/login/callback/facebook')}}">Facebookでログイン</a>
 
     </div>
     <!-- /.login-box-body -->
