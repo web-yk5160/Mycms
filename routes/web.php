@@ -70,5 +70,5 @@ Route::resource('/backend/users', 'Backend\UsersController', ['as' => 'backend']
 Route::resource('/backend/tags', 'Backend\TagsController', ['as' => 'backend']);
 
 
-Route::get('auth/login/facebook', 'Auth\OAuthLoginController@getFacebookAuth');
-Route::get('auth/login/callback/facebook', 'Auth\OAuthLoginController@getFacebookAuthCallback');
+Route::get('login/facebook', 'Auth\OAuthLoginController@getFacebookAuth');
+Route::get('login/callback/facebook', 'Auth\OAuthLoginController@getFacebookAuthCallback');
