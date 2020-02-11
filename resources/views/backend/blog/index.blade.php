@@ -35,7 +35,10 @@
                       @endif
                     @endforeach
                   @endforeach
+
+                  @if($posts->count())
                   {!! implode(' | ', $links) !!}
+                  @endif
                 </div>
               </div>
               <!-- /.box-header -->

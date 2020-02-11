@@ -4,20 +4,24 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use Socialite;
+use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Laravel\Socialite\Facades\Socialite as FacadesSocialite;
+
 
 class OAuthLoginController extends Controller
 {
     public function socialLogin($social)
     {
-        return Socialite::driver($social)->redirect();
+        return FacadesSocialite::driver($social)->redirect();
     }
     //Callback処理
     public function handleProviderCallback($social)
     {
         // ユーザ属性を取得
         try {
-            $userSocial = Socialite::driver($social)->user();
+            $userSocial = FacadesSocialite::driver($social)->user();
         } catch (Exception $e) {
             // OAuthによるユーザー情報取得失敗
             return redirect()->route('/')->withErrors('ユーザー情報の取得に失敗しました。');
